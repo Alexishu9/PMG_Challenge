@@ -93,13 +93,6 @@ ON m.geo = a.geo AND m.date = a.date;
 
 
 -- Question #4 In your opinion, what is the most efficient store and why?​ 
-SELECT geo, SUM(impressions) AS total_impression, SUM(clicks) AS total_clicks, SUM(revenue) AS total_rev, SUM(clicks)/SUM(impressions) AS CTR, SUM(revenue)/SUM(impressions) AS RPI
-FROM store_revenue
-RIGHT JOIN marketing_data
-ON RIGHT(store_revenue.store_location, 2) = marketing_data.geo AND store_revenue.date = marketing_data.date
-GROUP BY geo
-ORDER BY RPI desc, CTR desc;
-
 SELECT b.geo, 
        SUM(b.impressions) AS total_impression, 
        SUM(b.clicks) AS total_clicks, 
